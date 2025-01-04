@@ -16,10 +16,12 @@ document.addEventListener('DOMContentLoaded', function() {
     // Crest functionality
     const crestOverlay = document.getElementById('crest-overlay');
     const randomCrest = document.getElementById('random-crest');
+
     
     // Array of all crest filenames
-    const crests = Array.from({length: 73}, (_, i) => `crests/Crest-${i + 1}.png`);
-    crests.push('crests/Crest-i-like-1.png', 'crests/Crest-i-like-2.png');
+    const crests = Array.from({length: 73}, (_, i) => `Crests/Crest-${i + 1}.png`);
+    crests.push('Crests/Crest-i-like-1.png', 'Crests/Crest-i-like-2.png');
+
 
     // Function to get random crest
     function getRandomCrest() {
