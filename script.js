@@ -27,9 +27,13 @@ document.addEventListener('DOMContentLoaded', function() {
         return crests[randomIndex];
     }
 
-    // Load random crest
     function loadCrest() {
-        if (!crestOverlay || !randomCrest) return;
+        if (!crestOverlay || !randomCrest) {
+            console.log('Missing elements:', { crestOverlay, randomCrest });
+            return;
+        }
+        
+        console.log('Loading crest image...');
         
         // Reset state
         document.body.classList.remove('content-visible');
@@ -37,13 +41,20 @@ document.addEventListener('DOMContentLoaded', function() {
         crestOverlay.style.display = 'flex';
         
         const crestUrl = getRandomCrest();
+        console.log('Selected crest URL:', crestUrl);
         randomCrest.src = crestUrl;
         
         randomCrest.onload = () => {
+            console.log('Crest image loaded');
             randomCrest.classList.add('loaded');
             addInteractionListeners();
         };
+    
+        randomCrest.onerror = (e) => {
+            console.error('Error loading crest image:', e);
+        };
     }
+    
 
     // Handle user interactions
     function addInteractionListeners() {
@@ -72,9 +83,17 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 
     // Initialize if we're on the homepage
-    if (window.location.pathname.endsWith('/') || 
-    window.location.pathname.endsWith('index.html') ||
-    window.location.pathname.includes('/jakesucoff')) {
-    loadCrest();
-}
+    if (window.location.pathname) {
+        console.log('Current path:', window.location.pathname);
+        if (window.location.pathname === '/' || 
+            window.location.pathname.endsWith('index.html') ||
+            window.location.pathname.includes('/jakesucoff/') ||
+            window.location.pathname === '/jakesucoff') {
+                console.log('Loading crest...');
+                loadCrest();
+        } else {
+                console.log('Path not matched for crest loading');
+        }
+    }
+    
 });
