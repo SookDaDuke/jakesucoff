@@ -72,7 +72,9 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 
     // Initialize if we're on the homepage
-    if (window.location.pathname === '/' || window.location.pathname.endsWith('index.html')) {
-        loadCrest();
-    }
+    if (window.location.pathname.endsWith('/') || 
+    window.location.pathname.endsWith('index.html') ||
+    window.location.pathname.includes('/jakesucoff')) {
+    loadCrest();
+}
 });
