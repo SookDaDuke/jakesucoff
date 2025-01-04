@@ -19,8 +19,8 @@ document.addEventListener('DOMContentLoaded', function() {
 
     
     // Array of all crest filenames
-    const crests = Array.from({length: 73}, (_, i) => `Crests/Crest-${i + 1}.png`);
-    crests.push('Crests/Crest-i-like-1.png', 'Crests/Crest-i-like-2.png');
+    const crests = Array.from({length: 73}, (_, i) => `/jakesucoff/Crests/Crest-${i + 1}.png`);
+    crests.push('/jakesucoff/Crests/Crest-i-like-1.png', '/jakesucoff/Crests/Crest-i-like-2.png');
 
 
     // Function to get random crest
